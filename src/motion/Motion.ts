@@ -1,5 +1,6 @@
 import type { MotionDirection, MotionParams, MotionState } from "./types";
 import { DEFAULT_MOTION } from "./constants";
+import type { BezierPoint } from "../tokens/types";
   
 /** 
  * 메서드 체이닝 방식을 지원해 편리하게 사용할 수 있는 모션 클래스 
@@ -13,6 +14,11 @@ export class Motion {
   constructor(direction: MotionDirection) {
     // 모션 기본값 설정
     this.state = {...DEFAULT_MOTION[direction]};
+  }
+
+  easing(easing: BezierPoint) {
+    this.state.easing = easing;
+    return this;
   }
 
   /** 모션 지속 시간 */
