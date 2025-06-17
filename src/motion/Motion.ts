@@ -31,13 +31,7 @@ export class Motion {
     const defaultMotion = DEFAULT_MOTION[direction];
 
     // 모션 기본값 설정
-    this.state = {
-        easing: defaultMotion.easing,
-        duration: defaultMotion.duration,
-        opacity: { ...defaultMotion.opacity },
-        translateX: { ...defaultMotion.translateX },
-        translateY: { ...defaultMotion.translateY }
-    };
+    this.state = {...defaultMotion};
   }
 
   /** 모션 지속 시간 */
